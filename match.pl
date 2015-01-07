@@ -8,8 +8,10 @@ use warnings;
 #
 while (<>) {		# take one input line at a time
   chomp;
-  if (/rub/) {
+  if ( /(?<name1>\b[a-zA-Z]+a\b) (?<name2>[\d\D]{5})/x ) {
+  #if ( /(a\w+)/ ) {
     print "Matched: |$`<$&>$'|\n"; 
+    print "Word contains $+{name1} and $+{name2}\n";
   } else {
       print "No match: |$_|\n";
   }
